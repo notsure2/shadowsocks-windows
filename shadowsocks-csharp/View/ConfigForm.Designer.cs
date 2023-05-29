@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.RemoteRcvBufTextBox = new System.Windows.Forms.TextBox();
+            this.RemoteSndBufTextBox = new System.Windows.Forms.TextBox();
+            this.RemoteRcvBufLabel = new System.Windows.Forms.Label();
+            this.RemoteSndBufLabel = new System.Windows.Forms.Label();
             this.PluginOptionsLabel = new System.Windows.Forms.Label();
             this.PluginTextBox = new System.Windows.Forms.TextBox();
             this.RemarksTextBox = new System.Windows.Forms.TextBox();
@@ -72,10 +76,6 @@
             this.LocalSndBufTextBox = new System.Windows.Forms.TextBox();
             this.LocalRcvBufLabel = new System.Windows.Forms.Label();
             this.LocalSndBufLabel = new System.Windows.Forms.Label();
-            this.RemoteSndBufLabel = new System.Windows.Forms.Label();
-            this.RemoteRcvBufLabel = new System.Windows.Forms.Label();
-            this.RemoteSndBufTextBox = new System.Windows.Forms.TextBox();
-            this.RemoteRcvBufTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.ServerGroupBox.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -88,10 +88,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufTextBox, 1, 15);
-            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufTextBox, 1, 14);
-            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufLabel, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufLabel, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufTextBox, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufTextBox, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufLabel, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufLabel, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.PluginOptionsLabel, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.PluginTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.RemarksTextBox, 1, 10);
@@ -133,11 +133,55 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 389);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 437);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // RemoteRcvBufTextBox
+            // 
+            this.RemoteRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(129, 371);
+            this.RemoteRcvBufTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RemoteRcvBufTextBox.MaxLength = 32;
+            this.RemoteRcvBufTextBox.Name = "RemoteRcvBufTextBox";
+            this.RemoteRcvBufTextBox.Size = new System.Drawing.Size(457, 20);
+            this.RemoteRcvBufTextBox.TabIndex = 16;
+            this.RemoteRcvBufTextBox.WordWrap = false;
+            // 
+            // RemoteSndBufTextBox
+            // 
+            this.RemoteSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(129, 347);
+            this.RemoteSndBufTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RemoteSndBufTextBox.MaxLength = 32;
+            this.RemoteSndBufTextBox.Name = "RemoteSndBufTextBox";
+            this.RemoteSndBufTextBox.Size = new System.Drawing.Size(457, 20);
+            this.RemoteSndBufTextBox.TabIndex = 15;
+            this.RemoteSndBufTextBox.WordWrap = false;
+            // 
+            // RemoteRcvBufLabel
+            // 
+            this.RemoteRcvBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RemoteRcvBufLabel.AutoSize = true;
+            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(6, 374);
+            this.RemoteRcvBufLabel.Name = "RemoteRcvBufLabel";
+            this.RemoteRcvBufLabel.Size = new System.Drawing.Size(118, 13);
+            this.RemoteRcvBufLabel.TabIndex = 14;
+            this.RemoteRcvBufLabel.Text = "Remote Receive Buffer";
+            this.toolTip1.SetToolTip(this.RemoteRcvBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
+            // 
+            // RemoteSndBufLabel
+            // 
+            this.RemoteSndBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RemoteSndBufLabel.AutoSize = true;
+            this.RemoteSndBufLabel.Location = new System.Drawing.Point(21, 350);
+            this.RemoteSndBufLabel.Name = "RemoteSndBufLabel";
+            this.RemoteSndBufLabel.Size = new System.Drawing.Size(103, 13);
+            this.RemoteSndBufLabel.TabIndex = 13;
+            this.RemoteSndBufLabel.Text = "Remote Send Buffer";
+            this.toolTip1.SetToolTip(this.RemoteSndBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
             // 
             // PluginOptionsLabel
             // 
@@ -395,7 +439,7 @@
             // 
             this.OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OKButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OKButton.Location = new System.Drawing.Point(383, 506);
+            this.OKButton.Location = new System.Drawing.Point(383, 554);
             this.OKButton.Margin = new System.Windows.Forms.Padding(2);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(123, 23);
@@ -408,7 +452,7 @@
             // 
             this.MyCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.MyCancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MyCancelButton.Location = new System.Drawing.Point(510, 506);
+            this.MyCancelButton.Location = new System.Drawing.Point(510, 554);
             this.MyCancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.MyCancelButton.Name = "MyCancelButton";
             this.MyCancelButton.Size = new System.Drawing.Size(123, 23);
@@ -421,7 +465,7 @@
             // 
             this.ApplyButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ApplyButton.Enabled = false;
-            this.ApplyButton.Location = new System.Drawing.Point(637, 506);
+            this.ApplyButton.Location = new System.Drawing.Point(637, 554);
             this.ApplyButton.Margin = new System.Windows.Forms.Padding(2);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(124, 23);
@@ -433,7 +477,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteButton.Location = new System.Drawing.Point(80, 412);
+            this.DeleteButton.Location = new System.Drawing.Point(80, 460);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(80, 23);
@@ -445,7 +489,7 @@
             // AddButton
             // 
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddButton.Location = new System.Drawing.Point(2, 412);
+            this.AddButton.Location = new System.Drawing.Point(2, 460);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(74, 23);
@@ -464,7 +508,7 @@
             this.ServerGroupBox.Location = new System.Drawing.Point(164, 0);
             this.ServerGroupBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.ServerGroupBox.Name = "ServerGroupBox";
-            this.ServerGroupBox.Size = new System.Drawing.Size(597, 408);
+            this.ServerGroupBox.Size = new System.Drawing.Size(597, 456);
             this.ServerGroupBox.TabIndex = 0;
             this.ServerGroupBox.TabStop = false;
             this.ServerGroupBox.Text = "Server";
@@ -478,14 +522,14 @@
             this.ServersListBox.Location = new System.Drawing.Point(2, 2);
             this.ServersListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ServersListBox.Name = "ServersListBox";
-            this.ServersListBox.Size = new System.Drawing.Size(158, 406);
+            this.ServersListBox.Size = new System.Drawing.Size(158, 454);
             this.ServersListBox.TabIndex = 11;
             this.ServersListBox.SelectedIndexChanged += new System.EventHandler(this.ServersListBox_SelectedIndexChanged);
             // 
             // MoveDownButton
             // 
             this.MoveDownButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MoveDownButton.Location = new System.Drawing.Point(80, 506);
+            this.MoveDownButton.Location = new System.Drawing.Point(80, 554);
             this.MoveDownButton.Margin = new System.Windows.Forms.Padding(2);
             this.MoveDownButton.Name = "MoveDownButton";
             this.MoveDownButton.Size = new System.Drawing.Size(80, 23);
@@ -497,7 +541,7 @@
             // MoveUpButton
             // 
             this.MoveUpButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MoveUpButton.Location = new System.Drawing.Point(2, 506);
+            this.MoveUpButton.Location = new System.Drawing.Point(2, 554);
             this.MoveUpButton.Margin = new System.Windows.Forms.Padding(2);
             this.MoveUpButton.Name = "MoveUpButton";
             this.MoveUpButton.Size = new System.Drawing.Size(74, 23);
@@ -510,7 +554,7 @@
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.ProxyPortTextBox, 2);
             this.ProxyPortTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 413);
+            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 461);
             this.ProxyPortTextBox.MaxLength = 10;
             this.ProxyPortTextBox.Name = "ProxyPortTextBox";
             this.ProxyPortTextBox.Size = new System.Drawing.Size(248, 20);
@@ -521,7 +565,7 @@
             // 
             this.ProxyPortLabel.AutoSize = true;
             this.ProxyPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 410);
+            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 458);
             this.ProxyPortLabel.Name = "ProxyPortLabel";
             this.ProxyPortLabel.Size = new System.Drawing.Size(213, 27);
             this.ProxyPortLabel.TabIndex = 10;
@@ -533,7 +577,7 @@
             this.PortableModeCheckBox.AutoSize = true;
             this.tableLayoutPanel7.SetColumnSpan(this.PortableModeCheckBox, 2);
             this.PortableModeCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PortableModeCheckBox.Location = new System.Drawing.Point(384, 480);
+            this.PortableModeCheckBox.Location = new System.Drawing.Point(384, 528);
             this.PortableModeCheckBox.Name = "PortableModeCheckBox";
             this.PortableModeCheckBox.Size = new System.Drawing.Size(248, 21);
             this.PortableModeCheckBox.TabIndex = 11;
@@ -544,7 +588,7 @@
             // DuplicateButton
             // 
             this.DuplicateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DuplicateButton.Location = new System.Drawing.Point(2, 479);
+            this.DuplicateButton.Location = new System.Drawing.Point(2, 527);
             this.DuplicateButton.Margin = new System.Windows.Forms.Padding(2);
             this.DuplicateButton.Name = "DuplicateButton";
             this.DuplicateButton.Size = new System.Drawing.Size(74, 23);
@@ -592,14 +636,14 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(763, 531);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(763, 579);
             this.tableLayoutPanel7.TabIndex = 8;
             // 
             // LocalRcvBufTextBox
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.LocalRcvBufTextBox, 2);
             this.LocalRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 460);
+            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 508);
             this.LocalRcvBufTextBox.MaxLength = 10;
             this.LocalRcvBufTextBox.Name = "LocalRcvBufTextBox";
             this.LocalRcvBufTextBox.Size = new System.Drawing.Size(248, 20);
@@ -610,7 +654,7 @@
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.LocalSndBufTextBox, 2);
             this.LocalSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 440);
+            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 488);
             this.LocalSndBufTextBox.MaxLength = 10;
             this.LocalSndBufTextBox.Name = "LocalSndBufTextBox";
             this.LocalSndBufTextBox.Size = new System.Drawing.Size(248, 20);
@@ -621,7 +665,7 @@
             // 
             this.LocalRcvBufLabel.AutoSize = true;
             this.LocalRcvBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 457);
+            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 505);
             this.LocalRcvBufLabel.Name = "LocalRcvBufLabel";
             this.LocalRcvBufLabel.Size = new System.Drawing.Size(213, 20);
             this.LocalRcvBufLabel.TabIndex = 21;
@@ -632,56 +676,12 @@
             // 
             this.LocalSndBufLabel.AutoSize = true;
             this.LocalSndBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 437);
+            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 485);
             this.LocalSndBufLabel.Name = "LocalSndBufLabel";
             this.LocalSndBufLabel.Size = new System.Drawing.Size(213, 20);
             this.LocalSndBufLabel.TabIndex = 20;
             this.LocalSndBufLabel.Text = "Local Send Buffer Size";
             this.LocalSndBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // RemoteSndBufLabel
-            // 
-            this.RemoteSndBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.RemoteSndBufLabel.AutoSize = true;
-            this.RemoteSndBufLabel.Location = new System.Drawing.Point(21, 349);
-            this.RemoteSndBufLabel.Name = "RemoteSndBufLabel";
-            this.RemoteSndBufLabel.Size = new System.Drawing.Size(103, 13);
-            this.RemoteSndBufLabel.TabIndex = 13;
-            this.RemoteSndBufLabel.Text = "Remote Send Buffer";
-            this.toolTip1.SetToolTip(this.RemoteSndBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
-            // 
-            // RemoteRcvBufLabel
-            // 
-            this.RemoteRcvBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.RemoteRcvBufLabel.AutoSize = true;
-            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(6, 369);
-            this.RemoteRcvBufLabel.Name = "RemoteRcvBufLabel";
-            this.RemoteRcvBufLabel.Size = new System.Drawing.Size(118, 13);
-            this.RemoteRcvBufLabel.TabIndex = 14;
-            this.RemoteRcvBufLabel.Text = "Remote Receive Buffer";
-            this.toolTip1.SetToolTip(this.RemoteRcvBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
-            // 
-            // RemoteSndBufTextBox
-            // 
-            this.RemoteSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(129, 348);
-            this.RemoteSndBufTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.RemoteSndBufTextBox.MaxLength = 32;
-            this.RemoteSndBufTextBox.Name = "RemoteSndBufTextBox";
-            this.RemoteSndBufTextBox.Size = new System.Drawing.Size(457, 20);
-            this.RemoteSndBufTextBox.TabIndex = 15;
-            this.RemoteSndBufTextBox.WordWrap = false;
-            // 
-            // RemoteRcvBufTextBox
-            // 
-            this.RemoteRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(129, 368);
-            this.RemoteRcvBufTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.RemoteRcvBufTextBox.MaxLength = 32;
-            this.RemoteRcvBufTextBox.Name = "RemoteRcvBufTextBox";
-            this.RemoteRcvBufTextBox.Size = new System.Drawing.Size(457, 20);
-            this.RemoteRcvBufTextBox.TabIndex = 16;
-            this.RemoteRcvBufTextBox.WordWrap = false;
             // 
             // ConfigForm
             // 
@@ -689,7 +689,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.MyCancelButton;
-            this.ClientSize = new System.Drawing.Size(779, 547);
+            this.ClientSize = new System.Drawing.Size(779, 595);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.panel2);
             this.MinimizeBox = false;
