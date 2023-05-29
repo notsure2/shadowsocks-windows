@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Pipes;
 using System.Net;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Shadowsocks.Controller
 
         public event EventHandler<RequestAddUrlEventArgs> OpenUrlRequested;
 
+        [SuppressMessage("ReSharper", "FunctionNeverReturns")]
         public async void RunServer()
         {
             byte[] buf = new byte[4096];
