@@ -76,14 +76,21 @@ namespace Shadowsocks.Proxy
 
         public HttpProxy(Configuration config)
         {
-            _remote.SetSocketOption(
-                SocketOptionLevel.Tcp,
-                SocketOptionName.SendBuffer,
-                config.remoteSocketSendBufferSize);
-            _remote.SetSocketOption(
-                SocketOptionLevel.Tcp,
-                SocketOptionName.ReceiveBuffer,
-                config.remoteSocketReceiveBufferSize);
+            if (config.remoteSocketSendBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.SendBuffer,
+                    config.remoteSocketSendBufferSize);
+            }
+
+            if (config.remoteSocketReceiveBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.ReceiveBuffer,
+                    config.remoteSocketReceiveBufferSize);
+            }
         }
 
         public void BeginConnectDest(EndPoint destEndPoint, AsyncCallback callback, object state, NetworkCredential auth = null)

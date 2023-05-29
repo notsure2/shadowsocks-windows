@@ -41,14 +41,21 @@ namespace Shadowsocks.Proxy
 
         public DirectConnect(Configuration config)
         {
-            _remote.SetSocketOption(
-                SocketOptionLevel.Tcp,
-                SocketOptionName.SendBuffer,
-                config.remoteSocketSendBufferSize);
-            _remote.SetSocketOption(
-                SocketOptionLevel.Tcp,
-                SocketOptionName.ReceiveBuffer,
-                config.remoteSocketReceiveBufferSize);
+            if (config.remoteSocketSendBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.SendBuffer,
+                    config.remoteSocketSendBufferSize);
+            }
+
+            if (config.remoteSocketReceiveBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.ReceiveBuffer,
+                    config.remoteSocketReceiveBufferSize);
+            }
         }
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)

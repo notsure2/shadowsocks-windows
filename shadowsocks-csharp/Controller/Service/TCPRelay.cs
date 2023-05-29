@@ -50,15 +50,23 @@ namespace Shadowsocks.Controller
             }
 
             socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-            socket.SetSocketOption(
-                SocketOptionLevel.Tcp, 
-                SocketOptionName.SendBuffer,
-                _config.localSocketSendBufferSize);
-            socket.SetSocketOption(
-                SocketOptionLevel.Tcp,
-                SocketOptionName.ReceiveBuffer,
-                _config.localSocketReceiveBufferSize);
-            
+
+            if (_config.localSocketSendBufferSize > 0)
+            {
+                socket.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.SendBuffer,
+                    _config.localSocketSendBufferSize);
+            }
+
+            if (_config.localSocketReceiveBufferSize > 0)
+            {
+                socket.SetSocketOption(
+                    SocketOptionLevel.Tcp,
+                    SocketOptionName.ReceiveBuffer,
+                    _config.localSocketReceiveBufferSize);
+            }
+
             TCPHandler handler = new TCPHandler(_controller, _config, socket);
 
             handler.OnConnected += OnConnected;
