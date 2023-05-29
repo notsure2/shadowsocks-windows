@@ -50,23 +50,6 @@ namespace Shadowsocks.Controller
             }
 
             socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-
-            if (_config.localSocketSendBufferSize > 0)
-            {
-                socket.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.SendBuffer,
-                    _config.localSocketSendBufferSize);
-            }
-
-            if (_config.localSocketReceiveBufferSize > 0)
-            {
-                socket.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.ReceiveBuffer,
-                    _config.localSocketReceiveBufferSize);
-            }
-
             TCPHandler handler = new TCPHandler(_controller, _config, socket);
 
             handler.OnConnected += OnConnected;
@@ -678,17 +661,17 @@ namespace Shadowsocks.Controller
                 if (pluginEP != null)
                 {
                     serverEP = pluginEP;
-                    remote = new DirectConnect(_fullConfig);
+                    remote = new DirectConnect(_server);
                 }
                 else if (_config.useProxy)
                 {
                     switch (_config.proxyType)
                     {
                         case ForwardProxyConfig.PROXY_SOCKS5:
-                            remote = new Socks5Proxy(_fullConfig);
+                            remote = new Socks5Proxy(_server);
                             break;
                         case ForwardProxyConfig.PROXY_HTTP:
-                            remote = new HttpProxy(_fullConfig);
+                            remote = new HttpProxy(_server);
                             break;
                         default:
                             throw new NotSupportedException("Unknown forward proxy.");
@@ -697,7 +680,7 @@ namespace Shadowsocks.Controller
                 }
                 else
                 {
-                    remote = new DirectConnect(_fullConfig);
+                    remote = new DirectConnect(_server);
                 }
 
                 AsyncSession session = new AsyncSession(remote);

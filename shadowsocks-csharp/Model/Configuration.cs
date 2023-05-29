@@ -59,8 +59,6 @@ namespace Shadowsocks.Model
 
         public int localSocketReceiveBufferSize;
         public int localSocketSendBufferSize;
-        public int remoteSocketReceiveBufferSize;
-        public int remoteSocketSendBufferSize;
 
         [JsonIgnore]
         public bool firstRunOnNewVersion;

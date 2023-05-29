@@ -68,12 +68,12 @@
             this.DuplicateButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.LocalSndBufLabel = new System.Windows.Forms.Label();
+            this.LocalRcvBufTextBox = new System.Windows.Forms.TextBox();
+            this.LocalSndBufTextBox = new System.Windows.Forms.TextBox();
             this.LocalRcvBufLabel = new System.Windows.Forms.Label();
+            this.LocalSndBufLabel = new System.Windows.Forms.Label();
             this.RemoteSndBufLabel = new System.Windows.Forms.Label();
             this.RemoteRcvBufLabel = new System.Windows.Forms.Label();
-            this.LocalSndBufTextBox = new System.Windows.Forms.TextBox();
-            this.LocalRcvBufTextBox = new System.Windows.Forms.TextBox();
             this.RemoteSndBufTextBox = new System.Windows.Forms.TextBox();
             this.RemoteRcvBufTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -88,6 +88,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufTextBox, 1, 15);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufTextBox, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteRcvBufLabel, 0, 15);
+            this.tableLayoutPanel1.Controls.Add(this.RemoteSndBufLabel, 0, 14);
             this.tableLayoutPanel1.Controls.Add(this.PluginOptionsLabel, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.PluginTextBox, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.RemarksTextBox, 1, 10);
@@ -115,7 +119,7 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.tableLayoutPanel1.RowCount = 14;
+            this.tableLayoutPanel1.RowCount = 16;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -130,14 +134,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 349);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 389);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // PluginOptionsLabel
             // 
             this.PluginOptionsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PluginOptionsLabel.AutoSize = true;
-            this.PluginOptionsLabel.Location = new System.Drawing.Point(20, 184);
+            this.PluginOptionsLabel.Location = new System.Drawing.Point(49, 184);
             this.PluginOptionsLabel.Name = "PluginOptionsLabel";
             this.PluginOptionsLabel.Size = new System.Drawing.Size(75, 13);
             this.PluginOptionsLabel.TabIndex = 6;
@@ -147,22 +153,22 @@
             // PluginTextBox
             // 
             this.PluginTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PluginTextBox.Location = new System.Drawing.Point(100, 133);
+            this.PluginTextBox.Location = new System.Drawing.Point(129, 133);
             this.PluginTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PluginTextBox.MaxLength = 256;
             this.PluginTextBox.Name = "PluginTextBox";
-            this.PluginTextBox.Size = new System.Drawing.Size(486, 20);
+            this.PluginTextBox.Size = new System.Drawing.Size(457, 20);
             this.PluginTextBox.TabIndex = 5;
             this.PluginTextBox.WordWrap = false;
             // 
             // RemarksTextBox
             // 
             this.RemarksTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemarksTextBox.Location = new System.Drawing.Point(100, 275);
+            this.RemarksTextBox.Location = new System.Drawing.Point(129, 275);
             this.RemarksTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.RemarksTextBox.MaxLength = 32;
             this.RemarksTextBox.Name = "RemarksTextBox";
-            this.RemarksTextBox.Size = new System.Drawing.Size(486, 20);
+            this.RemarksTextBox.Size = new System.Drawing.Size(457, 20);
             this.RemarksTextBox.TabIndex = 8;
             this.RemarksTextBox.WordWrap = false;
             // 
@@ -170,7 +176,7 @@
             // 
             this.IPLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.IPLabel.AutoSize = true;
-            this.IPLabel.Location = new System.Drawing.Point(44, 8);
+            this.IPLabel.Location = new System.Drawing.Point(73, 8);
             this.IPLabel.Name = "IPLabel";
             this.IPLabel.Size = new System.Drawing.Size(51, 13);
             this.IPLabel.TabIndex = 0;
@@ -180,7 +186,7 @@
             // 
             this.ServerPortLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ServerPortLabel.AutoSize = true;
-            this.ServerPortLabel.Location = new System.Drawing.Point(35, 32);
+            this.ServerPortLabel.Location = new System.Drawing.Point(64, 32);
             this.ServerPortLabel.Name = "ServerPortLabel";
             this.ServerPortLabel.Size = new System.Drawing.Size(60, 13);
             this.ServerPortLabel.TabIndex = 1;
@@ -190,7 +196,7 @@
             // 
             this.PasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(42, 57);
+            this.PasswordLabel.Location = new System.Drawing.Point(71, 57);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(53, 13);
             this.PasswordLabel.TabIndex = 2;
@@ -200,22 +206,22 @@
             // IPTextBox
             // 
             this.IPTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IPTextBox.Location = new System.Drawing.Point(100, 5);
+            this.IPTextBox.Location = new System.Drawing.Point(129, 5);
             this.IPTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.IPTextBox.MaxLength = 512;
             this.IPTextBox.Name = "IPTextBox";
-            this.IPTextBox.Size = new System.Drawing.Size(486, 20);
+            this.IPTextBox.Size = new System.Drawing.Size(457, 20);
             this.IPTextBox.TabIndex = 0;
             this.IPTextBox.WordWrap = false;
             // 
             // ServerPortTextBox
             // 
             this.ServerPortTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServerPortTextBox.Location = new System.Drawing.Point(100, 29);
+            this.ServerPortTextBox.Location = new System.Drawing.Point(129, 29);
             this.ServerPortTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ServerPortTextBox.MaxLength = 10;
             this.ServerPortTextBox.Name = "ServerPortTextBox";
-            this.ServerPortTextBox.Size = new System.Drawing.Size(486, 20);
+            this.ServerPortTextBox.Size = new System.Drawing.Size(457, 20);
             this.ServerPortTextBox.TabIndex = 1;
             this.ServerPortTextBox.WordWrap = false;
             // 
@@ -223,11 +229,11 @@
             // 
             this.PasswordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PasswordTextBox.Font = new System.Drawing.Font("Consolas", 9F);
-            this.PasswordTextBox.Location = new System.Drawing.Point(100, 53);
+            this.PasswordTextBox.Location = new System.Drawing.Point(129, 53);
             this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordTextBox.MaxLength = 256;
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(486, 22);
+            this.PasswordTextBox.Size = new System.Drawing.Size(457, 22);
             this.PasswordTextBox.TabIndex = 2;
             this.PasswordTextBox.UseSystemPasswordChar = true;
             this.PasswordTextBox.WordWrap = false;
@@ -236,7 +242,7 @@
             // 
             this.EncryptionLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.EncryptionLabel.AutoSize = true;
-            this.EncryptionLabel.Location = new System.Drawing.Point(38, 109);
+            this.EncryptionLabel.Location = new System.Drawing.Point(67, 109);
             this.EncryptionLabel.Name = "EncryptionLabel";
             this.EncryptionLabel.Size = new System.Drawing.Size(57, 13);
             this.EncryptionLabel.TabIndex = 4;
@@ -249,17 +255,17 @@
             this.EncryptionSelect.FormattingEnabled = true;
             this.EncryptionSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.EncryptionSelect.ItemHeight = 13;
-            this.EncryptionSelect.Location = new System.Drawing.Point(100, 104);
+            this.EncryptionSelect.Location = new System.Drawing.Point(129, 104);
             this.EncryptionSelect.Margin = new System.Windows.Forms.Padding(2, 4, 2, 6);
             this.EncryptionSelect.Name = "EncryptionSelect";
-            this.EncryptionSelect.Size = new System.Drawing.Size(486, 21);
+            this.EncryptionSelect.Size = new System.Drawing.Size(457, 21);
             this.EncryptionSelect.TabIndex = 4;
             // 
             // TimeoutLabel
             // 
             this.TimeoutLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.TimeoutLabel.AutoSize = true;
-            this.TimeoutLabel.Location = new System.Drawing.Point(25, 302);
+            this.TimeoutLabel.Location = new System.Drawing.Point(54, 302);
             this.TimeoutLabel.Name = "TimeoutLabel";
             this.TimeoutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TimeoutLabel.Size = new System.Drawing.Size(70, 13);
@@ -269,18 +275,18 @@
             // TimeoutTextBox
             // 
             this.TimeoutTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimeoutTextBox.Location = new System.Drawing.Point(100, 299);
+            this.TimeoutTextBox.Location = new System.Drawing.Point(129, 299);
             this.TimeoutTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TimeoutTextBox.MaxLength = 5;
             this.TimeoutTextBox.Name = "TimeoutTextBox";
-            this.TimeoutTextBox.Size = new System.Drawing.Size(486, 20);
+            this.TimeoutTextBox.Size = new System.Drawing.Size(457, 20);
             this.TimeoutTextBox.TabIndex = 9;
             // 
             // PluginLabel
             // 
             this.PluginLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PluginLabel.AutoSize = true;
-            this.PluginLabel.Location = new System.Drawing.Point(17, 136);
+            this.PluginLabel.Location = new System.Drawing.Point(46, 136);
             this.PluginLabel.Name = "PluginLabel";
             this.PluginLabel.Size = new System.Drawing.Size(78, 13);
             this.PluginLabel.TabIndex = 5;
@@ -289,19 +295,19 @@
             // PluginOptionsTextBox
             // 
             this.PluginOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PluginOptionsTextBox.Location = new System.Drawing.Point(100, 157);
+            this.PluginOptionsTextBox.Location = new System.Drawing.Point(129, 157);
             this.PluginOptionsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PluginOptionsTextBox.MaxLength = 4096;
             this.PluginOptionsTextBox.Multiline = true;
             this.PluginOptionsTextBox.Name = "PluginOptionsTextBox";
-            this.PluginOptionsTextBox.Size = new System.Drawing.Size(486, 67);
+            this.PluginOptionsTextBox.Size = new System.Drawing.Size(457, 67);
             this.PluginOptionsTextBox.TabIndex = 6;
             // 
             // ShowPasswdCheckBox
             // 
             this.ShowPasswdCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left)));
             this.ShowPasswdCheckBox.AutoSize = true;
-            this.ShowPasswdCheckBox.Location = new System.Drawing.Point(101, 80);
+            this.ShowPasswdCheckBox.Location = new System.Drawing.Point(130, 80);
             this.ShowPasswdCheckBox.Name = "ShowPasswdCheckBox";
             this.ShowPasswdCheckBox.Size = new System.Drawing.Size(102, 17);
             this.ShowPasswdCheckBox.TabIndex = 3;
@@ -313,11 +319,11 @@
             // PluginArgumentsTextBox
             // 
             this.PluginArgumentsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PluginArgumentsTextBox.Location = new System.Drawing.Point(100, 251);
+            this.PluginArgumentsTextBox.Location = new System.Drawing.Point(129, 251);
             this.PluginArgumentsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PluginArgumentsTextBox.MaxLength = 512;
             this.PluginArgumentsTextBox.Name = "PluginArgumentsTextBox";
-            this.PluginArgumentsTextBox.Size = new System.Drawing.Size(486, 20);
+            this.PluginArgumentsTextBox.Size = new System.Drawing.Size(457, 20);
             this.PluginArgumentsTextBox.TabIndex = 7;
             this.PluginArgumentsTextBox.WordWrap = false;
             // 
@@ -325,7 +331,7 @@
             // 
             this.PluginArgumentsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PluginArgumentsLabel.AutoSize = true;
-            this.PluginArgumentsLabel.Location = new System.Drawing.Point(6, 254);
+            this.PluginArgumentsLabel.Location = new System.Drawing.Point(35, 254);
             this.PluginArgumentsLabel.Name = "PluginArgumentsLabel";
             this.PluginArgumentsLabel.Size = new System.Drawing.Size(89, 13);
             this.PluginArgumentsLabel.TabIndex = 7;
@@ -335,7 +341,7 @@
             // NeedPluginArgCheckBox
             // 
             this.NeedPluginArgCheckBox.AutoSize = true;
-            this.NeedPluginArgCheckBox.Location = new System.Drawing.Point(101, 229);
+            this.NeedPluginArgCheckBox.Location = new System.Drawing.Point(130, 229);
             this.NeedPluginArgCheckBox.Name = "NeedPluginArgCheckBox";
             this.NeedPluginArgCheckBox.Size = new System.Drawing.Size(132, 17);
             this.NeedPluginArgCheckBox.TabIndex = 10;
@@ -346,19 +352,19 @@
             // GroupTextBox
             // 
             this.GroupTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GroupTextBox.Location = new System.Drawing.Point(100, 323);
+            this.GroupTextBox.Location = new System.Drawing.Point(129, 323);
             this.GroupTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.GroupTextBox.MaxLength = 5;
             this.GroupTextBox.Name = "GroupTextBox";
             this.GroupTextBox.ReadOnly = true;
-            this.GroupTextBox.Size = new System.Drawing.Size(486, 20);
+            this.GroupTextBox.Size = new System.Drawing.Size(457, 20);
             this.GroupTextBox.TabIndex = 12;
             // 
             // GroupLabel
             // 
             this.GroupLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.GroupLabel.AutoSize = true;
-            this.GroupLabel.Location = new System.Drawing.Point(59, 326);
+            this.GroupLabel.Location = new System.Drawing.Point(88, 326);
             this.GroupLabel.Name = "GroupLabel";
             this.GroupLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.GroupLabel.Size = new System.Drawing.Size(36, 13);
@@ -369,7 +375,7 @@
             // 
             this.RemarksLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RemarksLabel.AutoSize = true;
-            this.RemarksLabel.Location = new System.Drawing.Point(46, 278);
+            this.RemarksLabel.Location = new System.Drawing.Point(75, 278);
             this.RemarksLabel.Name = "RemarksLabel";
             this.RemarksLabel.Size = new System.Drawing.Size(49, 13);
             this.RemarksLabel.TabIndex = 8;
@@ -427,7 +433,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteButton.Location = new System.Drawing.Point(80, 372);
+            this.DeleteButton.Location = new System.Drawing.Point(80, 412);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(80, 23);
@@ -439,7 +445,7 @@
             // AddButton
             // 
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddButton.Location = new System.Drawing.Point(2, 372);
+            this.AddButton.Location = new System.Drawing.Point(2, 412);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(74, 23);
@@ -458,7 +464,7 @@
             this.ServerGroupBox.Location = new System.Drawing.Point(164, 0);
             this.ServerGroupBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.ServerGroupBox.Name = "ServerGroupBox";
-            this.ServerGroupBox.Size = new System.Drawing.Size(597, 368);
+            this.ServerGroupBox.Size = new System.Drawing.Size(597, 408);
             this.ServerGroupBox.TabIndex = 0;
             this.ServerGroupBox.TabStop = false;
             this.ServerGroupBox.Text = "Server";
@@ -472,7 +478,7 @@
             this.ServersListBox.Location = new System.Drawing.Point(2, 2);
             this.ServersListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ServersListBox.Name = "ServersListBox";
-            this.ServersListBox.Size = new System.Drawing.Size(158, 366);
+            this.ServersListBox.Size = new System.Drawing.Size(158, 406);
             this.ServersListBox.TabIndex = 11;
             this.ServersListBox.SelectedIndexChanged += new System.EventHandler(this.ServersListBox_SelectedIndexChanged);
             // 
@@ -504,7 +510,7 @@
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.ProxyPortTextBox, 2);
             this.ProxyPortTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 373);
+            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 413);
             this.ProxyPortTextBox.MaxLength = 10;
             this.ProxyPortTextBox.Name = "ProxyPortTextBox";
             this.ProxyPortTextBox.Size = new System.Drawing.Size(248, 20);
@@ -515,7 +521,7 @@
             // 
             this.ProxyPortLabel.AutoSize = true;
             this.ProxyPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 370);
+            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 410);
             this.ProxyPortLabel.Name = "ProxyPortLabel";
             this.ProxyPortLabel.Size = new System.Drawing.Size(213, 27);
             this.ProxyPortLabel.TabIndex = 10;
@@ -557,37 +563,31 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel7.Controls.Add(this.RemoteRcvBufTextBox, 3, 5);
-            this.tableLayoutPanel7.Controls.Add(this.RemoteSndBufTextBox, 3, 4);
             this.tableLayoutPanel7.Controls.Add(this.LocalRcvBufTextBox, 3, 3);
             this.tableLayoutPanel7.Controls.Add(this.LocalSndBufTextBox, 3, 2);
-            this.tableLayoutPanel7.Controls.Add(this.RemoteRcvBufLabel, 2, 5);
-            this.tableLayoutPanel7.Controls.Add(this.RemoteSndBufLabel, 2, 4);
             this.tableLayoutPanel7.Controls.Add(this.LocalRcvBufLabel, 2, 3);
-            this.tableLayoutPanel7.Controls.Add(this.ApplyButton, 5, 7);
-            this.tableLayoutPanel7.Controls.Add(this.MyCancelButton, 4, 7);
-            this.tableLayoutPanel7.Controls.Add(this.OKButton, 3, 7);
+            this.tableLayoutPanel7.Controls.Add(this.ApplyButton, 5, 5);
+            this.tableLayoutPanel7.Controls.Add(this.MyCancelButton, 4, 5);
+            this.tableLayoutPanel7.Controls.Add(this.OKButton, 3, 5);
             this.tableLayoutPanel7.Controls.Add(this.ProxyPortTextBox, 3, 1);
-            this.tableLayoutPanel7.Controls.Add(this.MoveDownButton, 1, 7);
+            this.tableLayoutPanel7.Controls.Add(this.MoveDownButton, 1, 5);
             this.tableLayoutPanel7.Controls.Add(this.ProxyPortLabel, 2, 1);
-            this.tableLayoutPanel7.Controls.Add(this.MoveUpButton, 0, 7);
+            this.tableLayoutPanel7.Controls.Add(this.MoveUpButton, 0, 5);
             this.tableLayoutPanel7.Controls.Add(this.AddButton, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.DeleteButton, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.DuplicateButton, 0, 6);
+            this.tableLayoutPanel7.Controls.Add(this.DuplicateButton, 0, 4);
             this.tableLayoutPanel7.Controls.Add(this.ServersListBox, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.ServerGroupBox, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.PortableModeCheckBox, 3, 6);
+            this.tableLayoutPanel7.Controls.Add(this.PortableModeCheckBox, 3, 4);
             this.tableLayoutPanel7.Controls.Add(this.LocalSndBufLabel, 2, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(8, 8);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 8;
+            this.tableLayoutPanel7.RowCount = 6;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -595,92 +595,92 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(763, 531);
             this.tableLayoutPanel7.TabIndex = 8;
             // 
-            // LocalSndBufLabel
-            // 
-            this.LocalSndBufLabel.AutoSize = true;
-            this.LocalSndBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 397);
-            this.LocalSndBufLabel.Name = "LocalSndBufLabel";
-            this.LocalSndBufLabel.Size = new System.Drawing.Size(213, 20);
-            this.LocalSndBufLabel.TabIndex = 20;
-            this.LocalSndBufLabel.Text = "Local Send Buffer Size";
-            this.LocalSndBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LocalRcvBufLabel
-            // 
-            this.LocalRcvBufLabel.AutoSize = true;
-            this.LocalRcvBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 417);
-            this.LocalRcvBufLabel.Name = "LocalRcvBufLabel";
-            this.LocalRcvBufLabel.Size = new System.Drawing.Size(213, 20);
-            this.LocalRcvBufLabel.TabIndex = 21;
-            this.LocalRcvBufLabel.Text = "Local Receive Buffer Size";
-            this.LocalRcvBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // RemoteSndBufLabel
-            // 
-            this.RemoteSndBufLabel.AutoSize = true;
-            this.RemoteSndBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteSndBufLabel.Location = new System.Drawing.Point(165, 437);
-            this.RemoteSndBufLabel.Name = "RemoteSndBufLabel";
-            this.RemoteSndBufLabel.Size = new System.Drawing.Size(213, 20);
-            this.RemoteSndBufLabel.TabIndex = 22;
-            this.RemoteSndBufLabel.Text = "Remote Send Buffer Size";
-            this.RemoteSndBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // RemoteRcvBufLabel
-            // 
-            this.RemoteRcvBufLabel.AutoSize = true;
-            this.RemoteRcvBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(165, 457);
-            this.RemoteRcvBufLabel.Name = "RemoteRcvBufLabel";
-            this.RemoteRcvBufLabel.Size = new System.Drawing.Size(213, 20);
-            this.RemoteRcvBufLabel.TabIndex = 23;
-            this.RemoteRcvBufLabel.Text = "Remote Receive Buffer Size";
-            this.RemoteRcvBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LocalSndBufTextBox
-            // 
-            this.tableLayoutPanel7.SetColumnSpan(this.LocalSndBufTextBox, 2);
-            this.LocalSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 400);
-            this.LocalSndBufTextBox.MaxLength = 10;
-            this.LocalSndBufTextBox.Name = "LocalSndBufTextBox";
-            this.LocalSndBufTextBox.Size = new System.Drawing.Size(248, 20);
-            this.LocalSndBufTextBox.TabIndex = 24;
-            this.LocalSndBufTextBox.WordWrap = false;
-            // 
             // LocalRcvBufTextBox
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.LocalRcvBufTextBox, 2);
             this.LocalRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 420);
+            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 460);
             this.LocalRcvBufTextBox.MaxLength = 10;
             this.LocalRcvBufTextBox.Name = "LocalRcvBufTextBox";
             this.LocalRcvBufTextBox.Size = new System.Drawing.Size(248, 20);
             this.LocalRcvBufTextBox.TabIndex = 25;
             this.LocalRcvBufTextBox.WordWrap = false;
             // 
+            // LocalSndBufTextBox
+            // 
+            this.tableLayoutPanel7.SetColumnSpan(this.LocalSndBufTextBox, 2);
+            this.LocalSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 440);
+            this.LocalSndBufTextBox.MaxLength = 10;
+            this.LocalSndBufTextBox.Name = "LocalSndBufTextBox";
+            this.LocalSndBufTextBox.Size = new System.Drawing.Size(248, 20);
+            this.LocalSndBufTextBox.TabIndex = 24;
+            this.LocalSndBufTextBox.WordWrap = false;
+            // 
+            // LocalRcvBufLabel
+            // 
+            this.LocalRcvBufLabel.AutoSize = true;
+            this.LocalRcvBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 457);
+            this.LocalRcvBufLabel.Name = "LocalRcvBufLabel";
+            this.LocalRcvBufLabel.Size = new System.Drawing.Size(213, 20);
+            this.LocalRcvBufLabel.TabIndex = 21;
+            this.LocalRcvBufLabel.Text = "Local Receive Buffer Size";
+            this.LocalRcvBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LocalSndBufLabel
+            // 
+            this.LocalSndBufLabel.AutoSize = true;
+            this.LocalSndBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 437);
+            this.LocalSndBufLabel.Name = "LocalSndBufLabel";
+            this.LocalSndBufLabel.Size = new System.Drawing.Size(213, 20);
+            this.LocalSndBufLabel.TabIndex = 20;
+            this.LocalSndBufLabel.Text = "Local Send Buffer Size";
+            this.LocalSndBufLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RemoteSndBufLabel
+            // 
+            this.RemoteSndBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RemoteSndBufLabel.AutoSize = true;
+            this.RemoteSndBufLabel.Location = new System.Drawing.Point(21, 349);
+            this.RemoteSndBufLabel.Name = "RemoteSndBufLabel";
+            this.RemoteSndBufLabel.Size = new System.Drawing.Size(103, 13);
+            this.RemoteSndBufLabel.TabIndex = 13;
+            this.RemoteSndBufLabel.Text = "Remote Send Buffer";
+            this.toolTip1.SetToolTip(this.RemoteSndBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
+            // 
+            // RemoteRcvBufLabel
+            // 
+            this.RemoteRcvBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RemoteRcvBufLabel.AutoSize = true;
+            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(6, 369);
+            this.RemoteRcvBufLabel.Name = "RemoteRcvBufLabel";
+            this.RemoteRcvBufLabel.Size = new System.Drawing.Size(118, 13);
+            this.RemoteRcvBufLabel.TabIndex = 14;
+            this.RemoteRcvBufLabel.Text = "Remote Receive Buffer";
+            this.toolTip1.SetToolTip(this.RemoteRcvBufLabel, "Not a SIP003 standard. Used as CLI arguments.\r\nMandatory:\r\n%SS_LOCAL_HOST%, %SS_L" + "OCAL_PORT%, %SS_REMOTE_HOST%, %SS_REMOTE_PORT%\r\nOptional:\r\n%SS_PLUGIN_OPTIONS%");
+            // 
             // RemoteSndBufTextBox
             // 
-            this.tableLayoutPanel7.SetColumnSpan(this.RemoteSndBufTextBox, 2);
             this.RemoteSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(384, 440);
-            this.RemoteSndBufTextBox.MaxLength = 10;
+            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(129, 348);
+            this.RemoteSndBufTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RemoteSndBufTextBox.MaxLength = 32;
             this.RemoteSndBufTextBox.Name = "RemoteSndBufTextBox";
-            this.RemoteSndBufTextBox.Size = new System.Drawing.Size(248, 20);
-            this.RemoteSndBufTextBox.TabIndex = 26;
+            this.RemoteSndBufTextBox.Size = new System.Drawing.Size(457, 20);
+            this.RemoteSndBufTextBox.TabIndex = 15;
             this.RemoteSndBufTextBox.WordWrap = false;
             // 
             // RemoteRcvBufTextBox
             // 
-            this.tableLayoutPanel7.SetColumnSpan(this.RemoteRcvBufTextBox, 2);
             this.RemoteRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(384, 460);
-            this.RemoteRcvBufTextBox.MaxLength = 10;
+            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(129, 368);
+            this.RemoteRcvBufTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RemoteRcvBufTextBox.MaxLength = 32;
             this.RemoteRcvBufTextBox.Name = "RemoteRcvBufTextBox";
-            this.RemoteRcvBufTextBox.Size = new System.Drawing.Size(248, 20);
-            this.RemoteRcvBufTextBox.TabIndex = 27;
+            this.RemoteRcvBufTextBox.Size = new System.Drawing.Size(457, 20);
+            this.RemoteRcvBufTextBox.TabIndex = 16;
             this.RemoteRcvBufTextBox.WordWrap = false;
             // 
             // ConfigForm
@@ -712,10 +712,9 @@
         }
 
         private System.Windows.Forms.TextBox RemoteRcvBufTextBox;
-
+        private System.Windows.Forms.Label RemoteRcvBufLabel;
         private System.Windows.Forms.Label LocalRcvBufLabel;
         private System.Windows.Forms.Label RemoteSndBufLabel;
-        private System.Windows.Forms.Label RemoteRcvBufLabel;
         private System.Windows.Forms.TextBox LocalSndBufTextBox;
         private System.Windows.Forms.TextBox LocalRcvBufTextBox;
         private System.Windows.Forms.TextBox RemoteSndBufTextBox;

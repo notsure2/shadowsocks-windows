@@ -14,6 +14,7 @@ namespace Shadowsocks.Proxy
     public class HttpProxy : IProxy
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Server _server;
 
         private class FakeAsyncResult : IAsyncResult
         {
@@ -62,6 +63,22 @@ namespace Shadowsocks.Proxy
         {
             _remote.EndConnect(asyncResult);
             _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+            
+            if (_server.remoteSocketSendBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.SendBuffer,
+                    _server.remoteSocketSendBufferSize);
+            }
+
+            if (_server.remoteSocketReceiveBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.ReceiveBuffer,
+                    _server.remoteSocketReceiveBufferSize);
+            }
         }
 
         private const string HTTP_CRLF = "\r\n";
@@ -74,23 +91,9 @@ namespace Shadowsocks.Proxy
             "" + HTTP_CRLF; // End with an empty line
         private const string PROXY_AUTH_TEMPLATE = "Proxy-Authorization: Basic {0}" + HTTP_CRLF;
 
-        public HttpProxy(Configuration config)
+        public HttpProxy(Server server)
         {
-            if (config.remoteSocketSendBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.SendBuffer,
-                    config.remoteSocketSendBufferSize);
-            }
-
-            if (config.remoteSocketReceiveBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.ReceiveBuffer,
-                    config.remoteSocketReceiveBufferSize);
-            }
+            _server = server;
         }
 
         public void BeginConnectDest(EndPoint destEndPoint, AsyncCallback callback, object state, NetworkCredential auth = null)

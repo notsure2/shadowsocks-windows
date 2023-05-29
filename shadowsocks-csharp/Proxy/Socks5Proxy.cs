@@ -11,6 +11,8 @@ namespace Shadowsocks.Proxy
 {
     public class Socks5Proxy : IProxy
     {
+        private readonly Server _server;
+
         private class FakeAsyncResult : IAsyncResult
         {
             public readonly Socks5State innerState;
@@ -49,23 +51,9 @@ namespace Shadowsocks.Proxy
         public EndPoint ProxyEndPoint { get; private set; }
         public EndPoint DestEndPoint { get; private set; }
 
-        public Socks5Proxy(Configuration config)
+        public Socks5Proxy(Server server)
         {
-            if (config.remoteSocketSendBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.SendBuffer,
-                    config.remoteSocketSendBufferSize);
-            }
-
-            if (config.remoteSocketReceiveBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.ReceiveBuffer,
-                    config.remoteSocketReceiveBufferSize);
-            }
+            _server = server;
         }
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)
@@ -199,6 +187,22 @@ namespace Shadowsocks.Proxy
                 _remote.EndConnect(ar);
 
                 _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+                
+                if (_server.remoteSocketSendBufferSize > 0)
+                {
+                    _remote.SetSocketOption(
+                        SocketOptionLevel.Socket,
+                        SocketOptionName.SendBuffer,
+                        _server.remoteSocketSendBufferSize);
+                }
+
+                if (_server.remoteSocketReceiveBufferSize > 0)
+                {
+                    _remote.SetSocketOption(
+                        SocketOptionLevel.Socket,
+                        SocketOptionName.ReceiveBuffer,
+                        _server.remoteSocketReceiveBufferSize);
+                }
 
                 byte[] handshake = {5, 1, 0};
                 _remote.BeginSend(handshake, 0, handshake.Length, 0, Socks5HandshakeSendCallback, state);

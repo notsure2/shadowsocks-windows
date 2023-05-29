@@ -9,6 +9,8 @@ namespace Shadowsocks.Proxy
 {
     public class DirectConnect : IProxy
     {
+        private readonly Server _server;
+
         private class FakeAsyncResult : IAsyncResult
         {
             public FakeAsyncResult(object state)
@@ -39,23 +41,9 @@ namespace Shadowsocks.Proxy
         public EndPoint ProxyEndPoint { get; } = new FakeEndPoint();
         public EndPoint DestEndPoint { get; private set; }
 
-        public DirectConnect(Configuration config)
+        public DirectConnect(Server server)
         {
-            if (config.remoteSocketSendBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.SendBuffer,
-                    config.remoteSocketSendBufferSize);
-            }
-
-            if (config.remoteSocketReceiveBufferSize > 0)
-            {
-                _remote.SetSocketOption(
-                    SocketOptionLevel.Tcp,
-                    SocketOptionName.ReceiveBuffer,
-                    config.remoteSocketReceiveBufferSize);
-            }
+            _server = server;
         }
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)
@@ -71,7 +59,8 @@ namespace Shadowsocks.Proxy
             // do nothing
         }
 
-        public void BeginConnectDest(EndPoint destEndPoint, AsyncCallback callback, object state, NetworkCredential auth = null)
+        public void BeginConnectDest(EndPoint destEndPoint, AsyncCallback callback, object state,
+            NetworkCredential auth = null)
         {
             DestEndPoint = destEndPoint;
 
@@ -82,6 +71,22 @@ namespace Shadowsocks.Proxy
         {
             _remote.EndConnect(asyncResult);
             _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+
+            if (_server.remoteSocketSendBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.SendBuffer,
+                    _server.remoteSocketSendBufferSize);
+            }
+
+            if (_server.remoteSocketReceiveBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.ReceiveBuffer,
+                    _server.remoteSocketReceiveBufferSize);
+            }
         }
 
         public void BeginSend(byte[] buffer, int offset, int size, SocketFlags socketFlags, AsyncCallback callback,

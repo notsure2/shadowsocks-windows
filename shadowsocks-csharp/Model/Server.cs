@@ -51,6 +51,9 @@ namespace Shadowsocks.Model
 
         // Set to true when imported from a legacy ss:// URL.
         public bool warnLegacyUrl;
+        
+        public int remoteSocketReceiveBufferSize;
+        public int remoteSocketSendBufferSize;
 
         public override int GetHashCode()
         {

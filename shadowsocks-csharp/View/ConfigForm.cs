@@ -180,7 +180,17 @@ namespace Shadowsocks.View
                         && (checkPassword = CheckPasswordTextBox(out string serverPassword, isSave, isCopy)).GetValueOrDefault(false) && serverPassword != null
                             && (checkTimeout = CheckTimeoutTextBox(out int? timeout, isSave, isCopy)).GetValueOrDefault(false) && timeout.HasValue)
             {
-                server = new Server()
+                if (!uint.TryParse(RemoteSndBufTextBox.Text, out var remoteSndBufSize))
+                {
+                    return false;
+                }
+
+                if (!uint.TryParse(RemoteRcvBufTextBox.Text, out var remoteRcvBufSize))
+                {
+                    return false;
+                }
+                
+                server = new Server
                 {
                     server = address,
                     server_port = addressPort.Value,
@@ -191,7 +201,9 @@ namespace Shadowsocks.View
                     plugin_args = PluginArgumentsTextBox.Text,
                     remarks = RemarksTextBox.Text,
                     timeout = timeout.Value,
-                    group = GroupTextBox.Text
+                    group = GroupTextBox.Text,
+                    remoteSocketSendBufferSize = (int)remoteSndBufSize,
+                    remoteSocketReceiveBufferSize = (int)remoteRcvBufSize
                 };
 
                 return true;
@@ -400,6 +412,9 @@ namespace Shadowsocks.View
             TimeoutTextBox.Text = server.timeout.ToString();
 
             GroupTextBox.Text = server.group;
+            
+            RemoteSndBufTextBox.Text = server.remoteSocketSendBufferSize.ToString();
+            RemoteRcvBufTextBox.Text = server.remoteSocketReceiveBufferSize.ToString();
 
             isChange = false;
         }
@@ -438,9 +453,7 @@ namespace Shadowsocks.View
 
             LocalSndBufTextBox.Text = _modifiedConfiguration.localSocketSendBufferSize.ToString();
             LocalRcvBufTextBox.Text = _modifiedConfiguration.localSocketReceiveBufferSize.ToString();
-            RemoteSndBufTextBox.Text = _modifiedConfiguration.remoteSocketSendBufferSize.ToString();
-            RemoteRcvBufTextBox.Text = _modifiedConfiguration.remoteSocketReceiveBufferSize.ToString();
-            
+
             PortableModeCheckBox.Checked = _modifiedConfiguration.portableMode;
 
             ApplyButton.Enabled = false;
@@ -470,21 +483,6 @@ namespace Shadowsocks.View
             }
 
             _modifiedConfiguration.localSocketReceiveBufferSize = (int)localRcvBufSize;
-            
-            if (!uint.TryParse(RemoteSndBufTextBox.Text, out var remoteSndBufSize))
-            {
-                throw new ArgumentException("Invalid remote send buffer");
-            }
-
-            _modifiedConfiguration.remoteSocketSendBufferSize = (int)remoteSndBufSize;
-
-            if (!uint.TryParse(RemoteRcvBufTextBox.Text, out var remoteRcvBufSize))
-            {
-                throw new ArgumentException("Invalid remote send buffer");
-            }
-
-            _modifiedConfiguration.remoteSocketReceiveBufferSize = (int)remoteRcvBufSize;
-
             _modifiedConfiguration.portableMode = PortableModeCheckBox.Checked;
 
             controller.SaveServers(_modifiedConfiguration.configs, _modifiedConfiguration.localPort, _modifiedConfiguration.portableMode);

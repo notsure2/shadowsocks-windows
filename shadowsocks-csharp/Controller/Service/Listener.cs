@@ -71,6 +71,23 @@ namespace Shadowsocks.Controller
                 _udpSocket = new Socket(config.isIPv6Enabled ? AddressFamily.InterNetworkV6 : AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 _tcpSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 _udpSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
+                if (_config.localSocketSendBufferSize > 0)
+                {
+                    _tcpSocket.SetSocketOption(
+                        SocketOptionLevel.Socket,
+                        SocketOptionName.SendBuffer,
+                        _config.localSocketSendBufferSize);
+                }
+
+                if (_config.localSocketReceiveBufferSize > 0)
+                {
+                    _tcpSocket.SetSocketOption(
+                        SocketOptionLevel.Socket,
+                        SocketOptionName.ReceiveBuffer,
+                        _config.localSocketReceiveBufferSize);
+                }
+                
                 IPEndPoint localEndPoint = null;
                 localEndPoint = _shareOverLAN
                     ? new IPEndPoint(config.isIPv6Enabled ? IPAddress.IPv6Any : IPAddress.Any, _config.localPort)
