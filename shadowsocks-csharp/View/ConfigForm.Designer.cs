@@ -136,13 +136,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 437);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(591, 603);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // RemoteRcvBufTextBox
             // 
             this.RemoteRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(129, 371);
+            this.RemoteRcvBufTextBox.Location = new System.Drawing.Point(129, 538);
             this.RemoteRcvBufTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.RemoteRcvBufTextBox.MaxLength = 32;
             this.RemoteRcvBufTextBox.Name = "RemoteRcvBufTextBox";
@@ -153,7 +153,7 @@
             // RemoteSndBufTextBox
             // 
             this.RemoteSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(129, 347);
+            this.RemoteSndBufTextBox.Location = new System.Drawing.Point(129, 514);
             this.RemoteSndBufTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.RemoteSndBufTextBox.MaxLength = 32;
             this.RemoteSndBufTextBox.Name = "RemoteSndBufTextBox";
@@ -165,7 +165,7 @@
             // 
             this.RemoteRcvBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RemoteRcvBufLabel.AutoSize = true;
-            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(6, 374);
+            this.RemoteRcvBufLabel.Location = new System.Drawing.Point(6, 541);
             this.RemoteRcvBufLabel.Name = "RemoteRcvBufLabel";
             this.RemoteRcvBufLabel.Size = new System.Drawing.Size(118, 13);
             this.RemoteRcvBufLabel.TabIndex = 14;
@@ -176,7 +176,7 @@
             // 
             this.RemoteSndBufLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RemoteSndBufLabel.AutoSize = true;
-            this.RemoteSndBufLabel.Location = new System.Drawing.Point(21, 350);
+            this.RemoteSndBufLabel.Location = new System.Drawing.Point(21, 517);
             this.RemoteSndBufLabel.Name = "RemoteSndBufLabel";
             this.RemoteSndBufLabel.Size = new System.Drawing.Size(103, 13);
             this.RemoteSndBufLabel.TabIndex = 13;
@@ -187,7 +187,7 @@
             // 
             this.PluginOptionsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PluginOptionsLabel.AutoSize = true;
-            this.PluginOptionsLabel.Location = new System.Drawing.Point(49, 184);
+            this.PluginOptionsLabel.Location = new System.Drawing.Point(49, 267);
             this.PluginOptionsLabel.Name = "PluginOptionsLabel";
             this.PluginOptionsLabel.Size = new System.Drawing.Size(75, 13);
             this.PluginOptionsLabel.TabIndex = 6;
@@ -208,7 +208,7 @@
             // RemarksTextBox
             // 
             this.RemarksTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemarksTextBox.Location = new System.Drawing.Point(129, 275);
+            this.RemarksTextBox.Location = new System.Drawing.Point(129, 442);
             this.RemarksTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.RemarksTextBox.MaxLength = 32;
             this.RemarksTextBox.Name = "RemarksTextBox";
@@ -309,7 +309,7 @@
             // 
             this.TimeoutLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.TimeoutLabel.AutoSize = true;
-            this.TimeoutLabel.Location = new System.Drawing.Point(54, 302);
+            this.TimeoutLabel.Location = new System.Drawing.Point(54, 469);
             this.TimeoutLabel.Name = "TimeoutLabel";
             this.TimeoutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TimeoutLabel.Size = new System.Drawing.Size(70, 13);
@@ -319,7 +319,7 @@
             // TimeoutTextBox
             // 
             this.TimeoutTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimeoutTextBox.Location = new System.Drawing.Point(129, 299);
+            this.TimeoutTextBox.Location = new System.Drawing.Point(129, 466);
             this.TimeoutTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TimeoutTextBox.MaxLength = 5;
             this.TimeoutTextBox.Name = "TimeoutTextBox";
@@ -344,7 +344,7 @@
             this.PluginOptionsTextBox.MaxLength = 4096;
             this.PluginOptionsTextBox.Multiline = true;
             this.PluginOptionsTextBox.Name = "PluginOptionsTextBox";
-            this.PluginOptionsTextBox.Size = new System.Drawing.Size(457, 67);
+            this.PluginOptionsTextBox.Size = new System.Drawing.Size(457, 234);
             this.PluginOptionsTextBox.TabIndex = 6;
             // 
             // ShowPasswdCheckBox
@@ -363,7 +363,7 @@
             // PluginArgumentsTextBox
             // 
             this.PluginArgumentsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PluginArgumentsTextBox.Location = new System.Drawing.Point(129, 251);
+            this.PluginArgumentsTextBox.Location = new System.Drawing.Point(129, 418);
             this.PluginArgumentsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PluginArgumentsTextBox.MaxLength = 512;
             this.PluginArgumentsTextBox.Name = "PluginArgumentsTextBox";
@@ -375,7 +375,7 @@
             // 
             this.PluginArgumentsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PluginArgumentsLabel.AutoSize = true;
-            this.PluginArgumentsLabel.Location = new System.Drawing.Point(35, 254);
+            this.PluginArgumentsLabel.Location = new System.Drawing.Point(35, 421);
             this.PluginArgumentsLabel.Name = "PluginArgumentsLabel";
             this.PluginArgumentsLabel.Size = new System.Drawing.Size(89, 13);
             this.PluginArgumentsLabel.TabIndex = 7;
@@ -385,7 +385,7 @@
             // NeedPluginArgCheckBox
             // 
             this.NeedPluginArgCheckBox.AutoSize = true;
-            this.NeedPluginArgCheckBox.Location = new System.Drawing.Point(130, 229);
+            this.NeedPluginArgCheckBox.Location = new System.Drawing.Point(130, 396);
             this.NeedPluginArgCheckBox.Name = "NeedPluginArgCheckBox";
             this.NeedPluginArgCheckBox.Size = new System.Drawing.Size(132, 17);
             this.NeedPluginArgCheckBox.TabIndex = 10;
@@ -396,7 +396,7 @@
             // GroupTextBox
             // 
             this.GroupTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GroupTextBox.Location = new System.Drawing.Point(129, 323);
+            this.GroupTextBox.Location = new System.Drawing.Point(129, 490);
             this.GroupTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.GroupTextBox.MaxLength = 5;
             this.GroupTextBox.Name = "GroupTextBox";
@@ -408,7 +408,7 @@
             // 
             this.GroupLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.GroupLabel.AutoSize = true;
-            this.GroupLabel.Location = new System.Drawing.Point(88, 326);
+            this.GroupLabel.Location = new System.Drawing.Point(88, 493);
             this.GroupLabel.Name = "GroupLabel";
             this.GroupLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.GroupLabel.Size = new System.Drawing.Size(36, 13);
@@ -419,7 +419,7 @@
             // 
             this.RemarksLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RemarksLabel.AutoSize = true;
-            this.RemarksLabel.Location = new System.Drawing.Point(75, 278);
+            this.RemarksLabel.Location = new System.Drawing.Point(75, 445);
             this.RemarksLabel.Name = "RemarksLabel";
             this.RemarksLabel.Size = new System.Drawing.Size(49, 13);
             this.RemarksLabel.TabIndex = 8;
@@ -439,7 +439,7 @@
             // 
             this.OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OKButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OKButton.Location = new System.Drawing.Point(383, 554);
+            this.OKButton.Location = new System.Drawing.Point(383, 720);
             this.OKButton.Margin = new System.Windows.Forms.Padding(2);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(123, 23);
@@ -452,7 +452,7 @@
             // 
             this.MyCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.MyCancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MyCancelButton.Location = new System.Drawing.Point(510, 554);
+            this.MyCancelButton.Location = new System.Drawing.Point(510, 720);
             this.MyCancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.MyCancelButton.Name = "MyCancelButton";
             this.MyCancelButton.Size = new System.Drawing.Size(123, 23);
@@ -465,7 +465,7 @@
             // 
             this.ApplyButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ApplyButton.Enabled = false;
-            this.ApplyButton.Location = new System.Drawing.Point(637, 554);
+            this.ApplyButton.Location = new System.Drawing.Point(637, 720);
             this.ApplyButton.Margin = new System.Windows.Forms.Padding(2);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(124, 23);
@@ -477,7 +477,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteButton.Location = new System.Drawing.Point(80, 460);
+            this.DeleteButton.Location = new System.Drawing.Point(80, 626);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(80, 23);
@@ -489,7 +489,7 @@
             // AddButton
             // 
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddButton.Location = new System.Drawing.Point(2, 460);
+            this.AddButton.Location = new System.Drawing.Point(2, 626);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(74, 23);
@@ -508,7 +508,7 @@
             this.ServerGroupBox.Location = new System.Drawing.Point(164, 0);
             this.ServerGroupBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.ServerGroupBox.Name = "ServerGroupBox";
-            this.ServerGroupBox.Size = new System.Drawing.Size(597, 456);
+            this.ServerGroupBox.Size = new System.Drawing.Size(597, 622);
             this.ServerGroupBox.TabIndex = 0;
             this.ServerGroupBox.TabStop = false;
             this.ServerGroupBox.Text = "Server";
@@ -522,14 +522,14 @@
             this.ServersListBox.Location = new System.Drawing.Point(2, 2);
             this.ServersListBox.Margin = new System.Windows.Forms.Padding(2);
             this.ServersListBox.Name = "ServersListBox";
-            this.ServersListBox.Size = new System.Drawing.Size(158, 454);
+            this.ServersListBox.Size = new System.Drawing.Size(158, 620);
             this.ServersListBox.TabIndex = 11;
             this.ServersListBox.SelectedIndexChanged += new System.EventHandler(this.ServersListBox_SelectedIndexChanged);
             // 
             // MoveDownButton
             // 
             this.MoveDownButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MoveDownButton.Location = new System.Drawing.Point(80, 554);
+            this.MoveDownButton.Location = new System.Drawing.Point(80, 720);
             this.MoveDownButton.Margin = new System.Windows.Forms.Padding(2);
             this.MoveDownButton.Name = "MoveDownButton";
             this.MoveDownButton.Size = new System.Drawing.Size(80, 23);
@@ -541,7 +541,7 @@
             // MoveUpButton
             // 
             this.MoveUpButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MoveUpButton.Location = new System.Drawing.Point(2, 554);
+            this.MoveUpButton.Location = new System.Drawing.Point(2, 720);
             this.MoveUpButton.Margin = new System.Windows.Forms.Padding(2);
             this.MoveUpButton.Name = "MoveUpButton";
             this.MoveUpButton.Size = new System.Drawing.Size(74, 23);
@@ -554,7 +554,7 @@
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.ProxyPortTextBox, 2);
             this.ProxyPortTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 461);
+            this.ProxyPortTextBox.Location = new System.Drawing.Point(384, 627);
             this.ProxyPortTextBox.MaxLength = 10;
             this.ProxyPortTextBox.Name = "ProxyPortTextBox";
             this.ProxyPortTextBox.Size = new System.Drawing.Size(248, 20);
@@ -565,7 +565,7 @@
             // 
             this.ProxyPortLabel.AutoSize = true;
             this.ProxyPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 458);
+            this.ProxyPortLabel.Location = new System.Drawing.Point(165, 624);
             this.ProxyPortLabel.Name = "ProxyPortLabel";
             this.ProxyPortLabel.Size = new System.Drawing.Size(213, 27);
             this.ProxyPortLabel.TabIndex = 10;
@@ -577,7 +577,7 @@
             this.PortableModeCheckBox.AutoSize = true;
             this.tableLayoutPanel7.SetColumnSpan(this.PortableModeCheckBox, 2);
             this.PortableModeCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PortableModeCheckBox.Location = new System.Drawing.Point(384, 528);
+            this.PortableModeCheckBox.Location = new System.Drawing.Point(384, 694);
             this.PortableModeCheckBox.Name = "PortableModeCheckBox";
             this.PortableModeCheckBox.Size = new System.Drawing.Size(248, 21);
             this.PortableModeCheckBox.TabIndex = 11;
@@ -588,7 +588,7 @@
             // DuplicateButton
             // 
             this.DuplicateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DuplicateButton.Location = new System.Drawing.Point(2, 527);
+            this.DuplicateButton.Location = new System.Drawing.Point(2, 693);
             this.DuplicateButton.Margin = new System.Windows.Forms.Padding(2);
             this.DuplicateButton.Name = "DuplicateButton";
             this.DuplicateButton.Size = new System.Drawing.Size(74, 23);
@@ -636,14 +636,14 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(763, 579);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(763, 745);
             this.tableLayoutPanel7.TabIndex = 8;
             // 
             // LocalRcvBufTextBox
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.LocalRcvBufTextBox, 2);
             this.LocalRcvBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 508);
+            this.LocalRcvBufTextBox.Location = new System.Drawing.Point(384, 674);
             this.LocalRcvBufTextBox.MaxLength = 10;
             this.LocalRcvBufTextBox.Name = "LocalRcvBufTextBox";
             this.LocalRcvBufTextBox.Size = new System.Drawing.Size(248, 20);
@@ -654,7 +654,7 @@
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.LocalSndBufTextBox, 2);
             this.LocalSndBufTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 488);
+            this.LocalSndBufTextBox.Location = new System.Drawing.Point(384, 654);
             this.LocalSndBufTextBox.MaxLength = 10;
             this.LocalSndBufTextBox.Name = "LocalSndBufTextBox";
             this.LocalSndBufTextBox.Size = new System.Drawing.Size(248, 20);
@@ -665,7 +665,7 @@
             // 
             this.LocalRcvBufLabel.AutoSize = true;
             this.LocalRcvBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 505);
+            this.LocalRcvBufLabel.Location = new System.Drawing.Point(165, 671);
             this.LocalRcvBufLabel.Name = "LocalRcvBufLabel";
             this.LocalRcvBufLabel.Size = new System.Drawing.Size(213, 20);
             this.LocalRcvBufLabel.TabIndex = 21;
@@ -676,7 +676,7 @@
             // 
             this.LocalSndBufLabel.AutoSize = true;
             this.LocalSndBufLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 485);
+            this.LocalSndBufLabel.Location = new System.Drawing.Point(165, 651);
             this.LocalSndBufLabel.Name = "LocalSndBufLabel";
             this.LocalSndBufLabel.Size = new System.Drawing.Size(213, 20);
             this.LocalSndBufLabel.TabIndex = 20;
@@ -689,7 +689,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.MyCancelButton;
-            this.ClientSize = new System.Drawing.Size(779, 595);
+            this.ClientSize = new System.Drawing.Size(779, 761);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.panel2);
             this.MinimizeBox = false;

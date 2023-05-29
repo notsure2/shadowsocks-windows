@@ -197,7 +197,7 @@ namespace Shadowsocks.View
                     password = serverPassword,
                     method = ((EncryptionMethod)EncryptionSelect.SelectedItem).name,
                     plugin = PluginTextBox.Text,
-                    plugin_opts = PluginOptionsTextBox.Text,
+                    plugin_opts = string.Join(";", PluginOptionsTextBox.Lines.Select(x => x.Trim().TrimEnd(';'))),
                     plugin_args = PluginArgumentsTextBox.Text,
                     remarks = RemarksTextBox.Text,
                     timeout = timeout.Value,
@@ -401,7 +401,8 @@ namespace Shadowsocks.View
             PasswordTextBox.Text = server.password;
             EncryptionSelect.SelectedItem = EncryptionMethod.GetMethod(server.method ?? Server.DefaultMethod);
             PluginTextBox.Text = server.plugin;
-            PluginOptionsTextBox.Text = server.plugin_opts;
+            PluginOptionsTextBox.Lines = server.plugin_opts.Split(';')
+                .Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             PluginArgumentsTextBox.Text = server.plugin_args;
 
             bool showPluginArgInput = !string.IsNullOrEmpty(server.plugin_args);
