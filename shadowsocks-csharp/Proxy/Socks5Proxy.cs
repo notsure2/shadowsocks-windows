@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Shadowsocks.Controller;
+using Shadowsocks.Model;
 using Shadowsocks.Util.Sockets;
 
 namespace Shadowsocks.Proxy
@@ -47,6 +48,18 @@ namespace Shadowsocks.Proxy
         public EndPoint LocalEndPoint => _remote.LocalEndPoint;
         public EndPoint ProxyEndPoint { get; private set; }
         public EndPoint DestEndPoint { get; private set; }
+
+        public Socks5Proxy(Configuration config)
+        {
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.SendBuffer,
+                config.remoteSocketSendBufferSize);
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.ReceiveBuffer,
+                config.remoteSocketReceiveBufferSize);
+        }
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)
         {

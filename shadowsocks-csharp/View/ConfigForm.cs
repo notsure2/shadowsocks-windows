@@ -122,6 +122,10 @@ namespace Shadowsocks.View
             TimeoutTextBox.TextChanged += ConfigValueChanged;
             PortableModeCheckBox.CheckedChanged += ConfigValueChanged;
             ServerPortTextBox.TextChanged += ConfigValueChanged;
+            LocalSndBufTextBox.TextChanged += ConfigValueChanged;
+            LocalRcvBufTextBox.TextChanged += ConfigValueChanged;
+            RemoteSndBufTextBox.TextChanged += ConfigValueChanged;
+            RemoteRcvBufTextBox.TextChanged += ConfigValueChanged;
         }
 
         private void Controller_ConfigChanged(object sender, EventArgs e)
@@ -431,6 +435,12 @@ namespace Shadowsocks.View
             LoadSelectedServerDetails();
 
             ProxyPortTextBox.Text = _modifiedConfiguration.localPort.ToString();
+
+            LocalSndBufTextBox.Text = _modifiedConfiguration.localSocketSendBufferSize.ToString();
+            LocalRcvBufTextBox.Text = _modifiedConfiguration.localSocketReceiveBufferSize.ToString();
+            RemoteSndBufTextBox.Text = _modifiedConfiguration.remoteSocketSendBufferSize.ToString();
+            RemoteRcvBufTextBox.Text = _modifiedConfiguration.remoteSocketReceiveBufferSize.ToString();
+            
             PortableModeCheckBox.Checked = _modifiedConfiguration.portableMode;
 
             ApplyButton.Enabled = false;
@@ -446,6 +456,34 @@ namespace Shadowsocks.View
             int localPort = int.Parse(ProxyPortTextBox.Text);
             Configuration.CheckLocalPort(localPort);
             _modifiedConfiguration.localPort = localPort;
+
+            if (!uint.TryParse(LocalSndBufTextBox.Text, out var localSndBufSize))
+            {
+                throw new ArgumentException("Invalid local send buffer");
+            }
+
+            _modifiedConfiguration.localSocketSendBufferSize = (int)localSndBufSize;
+
+            if (!uint.TryParse(LocalRcvBufTextBox.Text, out var localRcvBufSize))
+            {
+                throw new ArgumentException("Invalid local send buffer");
+            }
+
+            _modifiedConfiguration.localSocketReceiveBufferSize = (int)localRcvBufSize;
+            
+            if (!uint.TryParse(RemoteSndBufTextBox.Text, out var remoteSndBufSize))
+            {
+                throw new ArgumentException("Invalid remote send buffer");
+            }
+
+            _modifiedConfiguration.remoteSocketSendBufferSize = (int)remoteSndBufSize;
+
+            if (!uint.TryParse(RemoteRcvBufTextBox.Text, out var remoteRcvBufSize))
+            {
+                throw new ArgumentException("Invalid remote send buffer");
+            }
+
+            _modifiedConfiguration.remoteSocketReceiveBufferSize = (int)remoteRcvBufSize;
 
             _modifiedConfiguration.portableMode = PortableModeCheckBox.Checked;
 

@@ -57,6 +57,11 @@ namespace Shadowsocks.Model
         public ForwardProxyConfig proxy;
         public HotkeyConfig hotkey;
 
+        public int localSocketReceiveBufferSize;
+        public int localSocketSendBufferSize;
+        public int remoteSocketReceiveBufferSize;
+        public int remoteSocketSendBufferSize;
+
         [JsonIgnore]
         public bool firstRunOnNewVersion;
 

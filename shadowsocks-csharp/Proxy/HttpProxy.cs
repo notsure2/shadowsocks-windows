@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NLog;
 using Shadowsocks.Controller;
+using Shadowsocks.Model;
 using Shadowsocks.Util.Sockets;
 
 namespace Shadowsocks.Proxy
@@ -72,6 +73,18 @@ namespace Shadowsocks.Proxy
             "{1}" +         // Proxy-Authorization if any
             "" + HTTP_CRLF; // End with an empty line
         private const string PROXY_AUTH_TEMPLATE = "Proxy-Authorization: Basic {0}" + HTTP_CRLF;
+
+        public HttpProxy(Configuration config)
+        {
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.SendBuffer,
+                config.remoteSocketSendBufferSize);
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.ReceiveBuffer,
+                config.remoteSocketReceiveBufferSize);
+        }
 
         public void BeginConnectDest(EndPoint destEndPoint, AsyncCallback callback, object state, NetworkCredential auth = null)
         {

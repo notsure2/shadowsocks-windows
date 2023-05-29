@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using Shadowsocks.Model;
 using Shadowsocks.Util.Sockets;
 
 namespace Shadowsocks.Proxy
@@ -37,6 +38,18 @@ namespace Shadowsocks.Proxy
 
         public EndPoint ProxyEndPoint { get; } = new FakeEndPoint();
         public EndPoint DestEndPoint { get; private set; }
+
+        public DirectConnect(Configuration config)
+        {
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.SendBuffer,
+                config.remoteSocketSendBufferSize);
+            _remote.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.ReceiveBuffer,
+                config.remoteSocketReceiveBufferSize);
+        }
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)
         {

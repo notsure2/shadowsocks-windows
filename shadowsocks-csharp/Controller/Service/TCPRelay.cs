@@ -50,6 +50,15 @@ namespace Shadowsocks.Controller
             }
 
             socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+            socket.SetSocketOption(
+                SocketOptionLevel.Tcp, 
+                SocketOptionName.SendBuffer,
+                _config.localSocketSendBufferSize);
+            socket.SetSocketOption(
+                SocketOptionLevel.Tcp,
+                SocketOptionName.ReceiveBuffer,
+                _config.localSocketReceiveBufferSize);
+            
             TCPHandler handler = new TCPHandler(_controller, _config, socket);
 
             handler.OnConnected += OnConnected;
@@ -192,6 +201,7 @@ namespace Shadowsocks.Controller
 
         private readonly ShadowsocksController _controller;
         private readonly ForwardProxyConfig _config;
+        private readonly Configuration _fullConfig;
         private readonly Socket _connection;
 
         private IEncryptor _encryptor;
@@ -247,6 +257,7 @@ namespace Shadowsocks.Controller
         public TCPHandler(ShadowsocksController controller, Configuration config, Socket socket)
         {
             _controller = controller;
+            _fullConfig = config;
             _config = config.proxy;
             _connection = socket;
             _proxyTimeout = config.proxy.proxyTimeout * 1000;
@@ -659,17 +670,17 @@ namespace Shadowsocks.Controller
                 if (pluginEP != null)
                 {
                     serverEP = pluginEP;
-                    remote = new DirectConnect();
+                    remote = new DirectConnect(_fullConfig);
                 }
                 else if (_config.useProxy)
                 {
                     switch (_config.proxyType)
                     {
                         case ForwardProxyConfig.PROXY_SOCKS5:
-                            remote = new Socks5Proxy();
+                            remote = new Socks5Proxy(_fullConfig);
                             break;
                         case ForwardProxyConfig.PROXY_HTTP:
-                            remote = new HttpProxy();
+                            remote = new HttpProxy(_fullConfig);
                             break;
                         default:
                             throw new NotSupportedException("Unknown forward proxy.");
@@ -678,7 +689,7 @@ namespace Shadowsocks.Controller
                 }
                 else
                 {
-                    remote = new DirectConnect();
+                    remote = new DirectConnect(_fullConfig);
                 }
 
                 AsyncSession session = new AsyncSession(remote);
@@ -803,7 +814,7 @@ namespace Shadowsocks.Controller
             AsyncSession session = timer.Session;
             Server server = timer.Server;
             OnFailed?.Invoke(this, new SSRelayEventArgs(_server));
-            Logger.Info($"{server.ToString()} timed out");
+            Logger.Info($"{server} timed out");
             session.Remote.Close();
             Close();
         }
@@ -830,7 +841,7 @@ namespace Shadowsocks.Controller
 
                 _destConnected = true;
 
-                Logger.Debug($"Socket connected to ss server: {_server.ToString()}");
+                Logger.Debug($"Socket connected to ss server: {_server}");
 
                 TimeSpan latency = DateTime.Now - _startConnectTime;
 
@@ -903,7 +914,7 @@ namespace Shadowsocks.Controller
                 if (bytesRead > 0)
                 {
                     lastActivity = DateTime.Now;
-                    int bytesToSend = -1;
+                    int bytesToSend;
                     lock (_decryptionLock)
                     {
                         try
