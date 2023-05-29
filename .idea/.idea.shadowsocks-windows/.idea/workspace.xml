@@ -7,8 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb8d17b-8998-408f-b4d4-07ac265f69ed" name="Changes" comment="Fix build errors. Add Rider files.">
+    <list default="true" id="6bb8d17b-8998-408f-b4d4-07ac265f69ed" name="Changes" comment="Increase plugin options textbox max length.">
+      <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/Controller/Service/IPCService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/Controller/Service/IPCService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/Controller/Service/TCPRelay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/Controller/Service/TCPRelay.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/Model/Configuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/Model/Configuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/Proxy/DirectConnect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/Proxy/DirectConnect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/View/ConfigForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/View/ConfigForm.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shadowsocks-csharp/View/ConfigForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-csharp/View/ConfigForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shadowsocks-windows.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/shadowsocks-windows.sln.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +31,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
   </component>
@@ -44,7 +51,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -84,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685352530152</updated>
       <workItem from="1685352531148" duration="170000" />
-      <workItem from="1685352711886" duration="802000" />
+      <workItem from="1685352711886" duration="4201000" />
     </task>
     <task id="LOCAL-00001" summary="Fix build errors. Add Rider files.">
       <created>1685353380772</created>
@@ -93,15 +100,36 @@
       <option name="project" value="LOCAL" />
       <updated>1685353380772</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Project files for Rider.">
+      <created>1685353539945</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685353539945</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Increase plugin options textbox max length.">
+      <created>1685353664361</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685353664361</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Fix build errors. Add Rider files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix build errors. Add Rider files." />
+    <MESSAGE value="Project files for Rider." />
+    <MESSAGE value="Increase plugin options textbox max length." />
+    <option name="LAST_COMMIT_MESSAGE" value="Increase plugin options textbox max length." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
