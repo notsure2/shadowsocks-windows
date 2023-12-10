@@ -63,8 +63,6 @@ namespace Shadowsocks.Proxy
             NetworkCredential auth = null)
         {
             DestEndPoint = destEndPoint;
-            
-            _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
 
             if (_server.remoteSocketSendBufferSize > 0)
             {
@@ -88,6 +86,8 @@ namespace Shadowsocks.Proxy
         public void EndConnectDest(IAsyncResult asyncResult)
         {
             _remote.EndConnect(asyncResult);
+            
+            _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
         }
 
         public void BeginSend(byte[] buffer, int offset, int size, SocketFlags socketFlags, AsyncCallback callback,
