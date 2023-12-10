@@ -56,12 +56,6 @@ namespace Shadowsocks.Proxy
         {
             ProxyEndPoint = remoteEP;
 
-            _remote.BeginConnect(remoteEP, callback, state);
-        }
-
-        public void EndConnectProxy(IAsyncResult asyncResult)
-        {
-            _remote.EndConnect(asyncResult);
             _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
             
             if (_server.remoteSocketSendBufferSize > 0)
@@ -79,6 +73,13 @@ namespace Shadowsocks.Proxy
                     SocketOptionName.ReceiveBuffer,
                     _server.remoteSocketReceiveBufferSize);
             }
+            
+            _remote.BeginConnect(remoteEP, callback, state);
+        }
+
+        public void EndConnectProxy(IAsyncResult asyncResult)
+        {
+            _remote.EndConnect(asyncResult);
         }
 
         private const string HTTP_CRLF = "\r\n";

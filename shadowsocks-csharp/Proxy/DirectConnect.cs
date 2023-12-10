@@ -63,13 +63,7 @@ namespace Shadowsocks.Proxy
             NetworkCredential auth = null)
         {
             DestEndPoint = destEndPoint;
-
-            _remote.BeginConnect(destEndPoint, callback, state);
-        }
-
-        public void EndConnectDest(IAsyncResult asyncResult)
-        {
-            _remote.EndConnect(asyncResult);
+            
             _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
 
             if (_server.remoteSocketSendBufferSize > 0)
@@ -87,6 +81,13 @@ namespace Shadowsocks.Proxy
                     SocketOptionName.ReceiveBuffer,
                     _server.remoteSocketReceiveBufferSize);
             }
+
+            _remote.BeginConnect(destEndPoint, callback, state);
+        }
+
+        public void EndConnectDest(IAsyncResult asyncResult)
+        {
+            _remote.EndConnect(asyncResult);
         }
 
         public void BeginSend(byte[] buffer, int offset, int size, SocketFlags socketFlags, AsyncCallback callback,

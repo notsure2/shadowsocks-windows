@@ -63,6 +63,24 @@ namespace Shadowsocks.Proxy
             st.AsyncState = state;
 
             ProxyEndPoint = remoteEP;
+            
+            _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
+                
+            if (_server.remoteSocketSendBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.SendBuffer,
+                    _server.remoteSocketSendBufferSize);
+            }
+
+            if (_server.remoteSocketReceiveBufferSize > 0)
+            {
+                _remote.SetSocketOption(
+                    SocketOptionLevel.Socket,
+                    SocketOptionName.ReceiveBuffer,
+                    _server.remoteSocketReceiveBufferSize);
+            }
 
             _remote.BeginConnect(remoteEP, ConnectCallback, st);
         }
@@ -185,24 +203,6 @@ namespace Shadowsocks.Proxy
             try
             {
                 _remote.EndConnect(ar);
-
-                _remote.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.NoDelay, true);
-                
-                if (_server.remoteSocketSendBufferSize > 0)
-                {
-                    _remote.SetSocketOption(
-                        SocketOptionLevel.Socket,
-                        SocketOptionName.SendBuffer,
-                        _server.remoteSocketSendBufferSize);
-                }
-
-                if (_server.remoteSocketReceiveBufferSize > 0)
-                {
-                    _remote.SetSocketOption(
-                        SocketOptionLevel.Socket,
-                        SocketOptionName.ReceiveBuffer,
-                        _server.remoteSocketReceiveBufferSize);
-                }
 
                 byte[] handshake = {5, 1, 0};
                 _remote.BeginSend(handshake, 0, handshake.Length, 0, Socks5HandshakeSendCallback, state);
