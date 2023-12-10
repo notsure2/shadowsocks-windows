@@ -49,7 +49,7 @@ namespace Shadowsocks.Proxy
         public EndPoint DestEndPoint { get; private set; }
 
 
-        private readonly WrappedSocket _remote = new WrappedSocket();
+        private readonly Socket _remote = new Socket(SocketType.Stream, ProtocolType.Tcp);
 
 
         public void BeginConnectProxy(EndPoint remoteEP, AsyncCallback callback, object state)

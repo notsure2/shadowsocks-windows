@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading;
 using Shadowsocks.Controller;
 using Shadowsocks.Model;
-using Shadowsocks.Util.Sockets;
 
 namespace Shadowsocks.Proxy
 {
@@ -42,7 +41,7 @@ namespace Shadowsocks.Proxy
             public Exception ex { get; set; }
         }
 
-        private readonly WrappedSocket _remote = new WrappedSocket();
+        private readonly Socket _remote = new Socket(SocketType.Stream, ProtocolType.Tcp);
 
         private const int Socks5PktMaxSize = 4 + 16 + 2;
         private readonly byte[] _receiveBuffer = new byte[Socks5PktMaxSize];

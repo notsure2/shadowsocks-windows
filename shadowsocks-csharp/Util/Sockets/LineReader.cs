@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Text;
 
 namespace Shadowsocks.Util.Sockets
 {
     public class LineReader
     {
-        private readonly WrappedSocket _socket;
+        private readonly Socket _socket;
         private readonly Func<string, object, bool> _onLineRead;
         private readonly Action<Exception, object> _onException;
         private readonly Action<byte[], int, int, object> _onFinish;
@@ -20,7 +21,7 @@ namespace Shadowsocks.Util.Sockets
 
         private int _bufferIndex;
 
-        public LineReader(WrappedSocket socket, Func<string, object, bool> onLineRead, Action<Exception, object> onException,
+        public LineReader(Socket socket, Func<string, object, bool> onLineRead, Action<Exception, object> onException,
             Action<byte[], int, int, object> onFinish, Encoding encoding, string delimiter, int maxLineBytes, object state)
         {
             if (socket == null)

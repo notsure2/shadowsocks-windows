@@ -34,7 +34,7 @@ namespace Shadowsocks.Proxy
             }
         }
 
-        private WrappedSocket _remote = new WrappedSocket();
+        private Socket _remote = new Socket(SocketType.Stream, ProtocolType.Tcp);
 
         public EndPoint LocalEndPoint => _remote.LocalEndPoint;
 
