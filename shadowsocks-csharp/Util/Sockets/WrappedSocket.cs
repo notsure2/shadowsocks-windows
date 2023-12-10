@@ -257,11 +257,7 @@ namespace Shadowsocks.Util.Sockets
             {
                 throw new ObjectDisposedException(GetType().FullName);
             }
-            if (!Connected)
-            {
-                throw new SocketException((int)SocketError.NotConnected);
-            }
-
+            
             _activeSocket.SetSocketOption(optionLevel, optionName, optionValue);
         }
     }
